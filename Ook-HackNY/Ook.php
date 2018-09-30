@@ -9,8 +9,8 @@
 
 <?php
 // define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = $facebookErr = $instagramErr = $snapchatErr = $linkedinErr = $shareErr = "";
-$name = $email = $share = $facebook = $instagram = $snapchat = $linkedin = $comment = $website = "";
+$nameErr = $emailErr = $genderErr = $websiteErr = $facebookErr = $instagramErr = $snapchatErr = $linkedinErr = $shareErr = $numErr = "";
+$name = $email = $share = $facebook = $instagram = $snapchat = $linkedin = $comment = $website = $number = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -50,29 +50,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comment = test_input($_POST["comment"]);
   }
 
-  if (empty($_POST["share"])) {
+  if (empty($_POST["sharing"])) {
     $shareErr = "Sharing types are required";
   } else {
-    $share = test_input($_POST["share"]);
+    $share = test_input($_POST["sharing"]);
   }
 }
 
+$facebook = test_input($_POST["facebook"]);
+$instagram = test_input($_POST["instagram"]);
+$snapchat = test_input($_POST["snapchat"]);
+$linkedin = test_input($_POST["instagram"]);
+$number = test_input($_POST["number"]);
+
+
 function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
+  //$data = trim($data);
+  //$data = stripslashes($data);
+  //$data = htmlspecialchars($data);
   return $data;
 }
+
+
 ?>
 
-<h2>PHP Form Validation Example</h2>
-<p><span class="error">* required field</span></p>
+<h1>Ook: Sharing Contact Info with One Scan</h1>
+<!-- <p><span class="error">* required field</span></p> !-->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   Name: <input type="text" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
   <br><br>
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error"> <?php echo $emailErr;?></span>
+  <br><br>
+  Number: <input type="text" name="number" value="<?php echo $number;?>">
+  <span class="error"><?php echo $numErr;?></span>
   <br><br>
   Website: <input type="text" name="website" value="<?php echo $website;?>">
   <span class="error"><?php echo $websiteErr;?></span>
@@ -84,38 +96,100 @@ function test_input($data) {
   <span class="error"><?php echo $instagramErr;?></span>
   <br><br>
   Snapchat: <input type="text" name="snapchat" value="<?php echo $snapchat;?>">
-  <span class="error"><?php echo $shareErr;?></span>
+  <span class="error"><?php echo $snapchatErr;?></span>
   <br><br>
   LinkedIn: <input type="text" name="linkedin" value="<?php echo $linkedin;?>">
   <span class="error"><?php echo $linkedinErr;?></span>
   <br><br>
   Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
   <br><br>
-  Share:
+
+
+<?php
+echo "<h2>Your Profile:</h2>";
+echo "Name: "; echo $name;
+echo "<br>";
+echo "Number: "; echo $number;
+echo "<br>";
+echo "Email: ";echo $email;
+echo "<br>";
+echo "Website: ";echo $website;
+echo "<br>";
+echo "Facebook: ";echo $facebook;
+echo "<br>";
+echo "Instagram: ";echo $instagram;
+echo "<br>";
+echo "Snapchat: ";echo $snapchat;
+echo "<br>";
+echo "Comment: ";echo $comment;
+echo "<br>";
+?>
+
+
+  <h1>Select Sharing Info</h1>
+  <!--
   <input type="radio" name="share" <?php if (isset($share) && $share=="facebook") echo "checked";?> value="facebook">Facebook
   <input type="radio" name="share" <?php if (isset($share) && $share=="instagram") echo "checked";?> value="instagram">Instagram
   <input type="radio" name="share" <?php if (isset($share) && $share=="snapchat") echo "checked";?> value="snapchat">Snapchat 
   <input type="radio" name="share" <?php if (isset($share) && $share=="linkedin") echo "checked";?> value="linkedin">LinkedIn 
   <span class="error">* <?php echo $genderErr;?></span>
-  <br><br>
   <input type="submit" name="submit" value="Submit">  
+  <br><br>
+!-->
+  <p><input type="checkbox" name="sharing[]" value="Number"/>Number</p>
+  <p><input type="checkbox" name="sharing[]" value="Website"/>Website</p>
+  <p><input type="checkbox" name="sharing[]" value="Facebook"/>Facebook</p>
+  <p><input type="checkbox" name="sharing[]" value="Instagram"/>Instagram</p>
+  <p><input type="checkbox" name="sharing[]" value="Snapchat"/>Snapchat</p>
+  <p><input type="checkbox" name="sharing[]" value="Linkedin"/>LinkedIn</p>
+  <p><input type="submit" name="submit" value="Generate QR Code"></p> 
+  <span class="error"> <?php echo $shareErr;?></span>
 </form>
 
+
+
 <?php
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $facebook;
-echo "<br>";
-echo $instagram;
-echo "<br>";
-echo $snapchat;
-echo "<br>";
-echo $comment;
+  echo '<h2>You have selected to share</h2>';
+  echo $name;
+  echo "<br>";
+
+  $display = "display";
+
+  foreach ($_POST['sharing'] as $sharing) {
+    if($sharing == 'Website'){
+      $display = $website;
+    }
+
+    if($sharing == 'Facebook'){
+      $display = $facebook;
+    }
+
+    if($sharing == 'Instagram'){
+      $display = $instagram;
+    }
+
+    if($sharing == 'Snapchat'){
+      $display = $snapchat;
+    }
+
+
+    if($sharing == 'Linkedin'){
+      $display = $linkedin;
+    }
+
+    if($sharing == 'Number'){
+      $display = $number;
+    }
+
+    echo $sharing;
+    echo " : ";
+    echo $display;
+    echo "<br>";
+
+    //echo '<p>'.$sharing.' :  </p>';
+  }
+//}
+
 ?>
 
 </body>
