@@ -20,12 +20,15 @@ POSTGRES = {
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
 %(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
-db.init_app(app)
+db.init_app(app)	
+
+#session = Session()
 
 #conn = psycopg2.connect(host="localhost",database="Ook", user="postgres", password="postgres")
 
 @app.route("/")
 def main():
+	#print("Running!")
     return 'Hello World !'
 
 @app.route('/')

@@ -27,10 +27,15 @@ class BaseModel(db.Model):
         }
 
 
-class Station(BaseModel, db.Model):
+class User(BaseModel, db.Model):
     """Model for the stations table"""
-    __tablename__ = 'stations'
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key = True)
-    lat = db.Column(db.Float)
-    lng = db.Column(db.Float)
+    name = db.Column('name', db.text)
+    facebook = db.Column('facebook', db.text)
+
+    '''
+    def __init__(self, name, facebook):
+        self.name = name
+        self.facebook = facebook
