@@ -1,7 +1,7 @@
 # Qontact-HackNY
-A HackNY 2018 Project, Winner of Twilio's Best Use of a Static Website🎉🎖
-Here is the
-[Devpost project](https://devpost.com/software/ook-sharing-contact-info-with-one-click )
+A HackNY 2018 Project, Winner of Twilio's Best Use of a Static Website🎉🎖🙌🏼.
+
+Here is the [Devpost project](https://devpost.com/software/ook-sharing-contact-info-with-one-click )
 
 ## The Problem
 When making a new friend, have you found it tedious going to each social media platforms and send a friend request? Or typing all the contact info (website, number, and emails) of your new friend?
