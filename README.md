@@ -3,6 +3,7 @@ A HackNY 2018 Project, Winner of Twilio's Best Use of a Static Website 🎉🎖�
 
 Here is the [Devpost project](https://devpost.com/software/ook-sharing-contact-info-with-one-click )
 
+
 ## The Problem
 When making a new friend, have you found it tedious going to each social media platforms and send a friend request? Or typing all the contact info (website, number, and emails) of your new friend?
 
@@ -15,9 +16,10 @@ Qontact is a virtual contact card that enables a user to add a person’s contac
 
 ![Qcontact](https://github.com/ami-zou/Qontact-HackNY/blob/master/Ook-HackNY/QContact-front%20page.png)
 
+
 ## Our Team
 * Front-End Design: Riya. 
-* Back-End: Ami Zou
+* Back-End: Ami Zou.
 * Generate QR Code: Steven Chan. 
 * Product Management: Gillian Pantaleon.
 
