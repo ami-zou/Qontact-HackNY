@@ -28,6 +28,6 @@ I worked on most of the back-end for the web app and database, and ran into many
 In the end, I coded the website using PHP + MySQL. It has one page for the user to input all his/her contact information, choose the fields he/she wants to share, and then generate a QR code.
 
 The next step would be:
-1. Creating a login page to store user's info
+1. Create a login page to store user's info
 2. Create a mobile app version with multiple pages for the different functionalities
 3. Host everything online and be able to generate a contact card page by scanning the QR code
