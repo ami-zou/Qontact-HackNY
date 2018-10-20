@@ -13,14 +13,16 @@ Gotta solve this problem!
 ## Solution
 Qontact is a virtual contact card that enables a user to add a person’s contact information and social media all at once. Qontact runs on a mobile-friendly dynamic website that generates a QR code that contain an individual’s contact information/social media.
 
+![Qcontact](https://github.com/ami-zou/Qontact-HackNY/blob/master/Ook-HackNY/QContact-front%20page.png)
+
 ## Our Team
-Front-End: Riya. 
-Back-End: Ami Zou & Steven Chan. 
-Design: Riya. 
-Product Management: Gillian Pantaleon.
+* Front-End Design: Riya. 
+* Back-End: Ami Zou
+* Generate QR Code: Steven Chan. 
+* Product Management: Gillian Pantaleon.
 
 ## Development
-I worked on most of the back-end for the web app and database, and ran into many problems:
+I worked on the back-end for the web app and database, and ran into many problems:
 1. Set up Postgres and Apache; for some reason, localhost and some ports were not running
 2. Attempted to use Flask for postgresql & python connection but failed
 3. Switched back to PHP but had many errors in compiling the file
